@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Suppliers.API",
+    "\\Suppliers.Domain",
+    "\\Suppliers.Infrastructure",
+    "\\Suppliers.Infrastructure\\Context",
+    "\\Suppliers.Infrastructure\\Infrastructure",
+    "\\Suppliers.Infrastructure\\Models"
+  ],
+  "SelectedNode": "\\Suppliers.API\\Program.cs",
+  "PreviewInSolutionExplorer": false
+}
