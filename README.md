@@ -37,7 +37,7 @@ Also, update the connectin string in the database context `Suppliers.Infrastruct
 ```c#
 if (!optionsBuilder.IsConfigured)
 {
-    var connectionString = "Server=SPIGISAURIO\\MSSQLSERVER01;Database=suppliers;Encrypt=false;Integrated Security=SSPI;persist security info=True;";
+    var connectionString = "Server=tcp:localhost;Database=<YOUR-DATABASE>;User=<YOUR-USERNAME>;Password=<YOUR-PASSWORD>;Encrypt=True;TrustServerCertificate=True;";
     optionsBuilder.UseSqlServer(connectionString);
 }
 ```
