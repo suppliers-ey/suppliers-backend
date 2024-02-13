@@ -24,17 +24,31 @@ git clone https://github.com/your-username/your-repository.git
 Create a new database in your SQL Server instance. You can use SQL Server Management Studio or any other tool you prefer. The approach in this project is code-first, so the database schema will be generated based on the entities defined in the code.
 
 ### 3. Configuring Connection String 
-Update the connection string in the appsettings.json or appsettings.Development.json file to point to your newly created database.
+Update the connection string in the `appsettings.json` in the `suppliers.API` directory to point to your newly created database.
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=YourDatabase;User=YourUsername;Password=YourPassword;"
+    "DefaultConnection": "Server=tcp:localhost;Database=<YOUR-DATABASE>;User=<YOUR-USERNAME>;Password=<YOUR-PASSWORD>;Encrypt=True;TrustServerCertificate=True;"
   }
 }
 ```
+
+Also, update the connectin string in the database context `Suppliers.Infrastructure/Context/SuppliersContext.cs`
+```c#
+if (!optionsBuilder.IsConfigured)
+{
+    var connectionString = "Server=SPIGISAURIO\\MSSQLSERVER01;Database=suppliers;Encrypt=false;Integrated Security=SSPI;persist security info=True;";
+    optionsBuilder.UseSqlServer(connectionString);
+}
+```
+
+
 ### 4. Build and Run the Project
+
 ```bash
+dotnet restore
 dotnet build
+cd suppliers.API
 dotnet run
 ```
 > If you're using Visual Studio or Visual Studio Code, you can also run the project from the IDE.
